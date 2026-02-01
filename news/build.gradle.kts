@@ -8,9 +8,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.material3)
     implementation(libs.androidx.paging.compose)
     implementation(libs.goodle.gson)
     implementation(libs.androidx.room.runtime)
@@ -18,9 +15,7 @@ dependencies {
     implementation(libs.androidx.room.paging)
     kapt(libs.room.kapt)
     implementation(libs.squareup.retrofit2)
-    implementation(libs.koin.compose)
     implementation(libs.androidx.work.manager.ktx)
-    debugImplementation(libs.androidx.ui.tooling)
 
     implementation(project(":settings"))
 }

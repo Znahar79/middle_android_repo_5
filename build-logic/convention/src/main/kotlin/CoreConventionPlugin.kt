@@ -36,6 +36,9 @@ class CoreConventionPlugin : Plugin<Project> {
             dependencies {
                 add("implementation", platform(library("androidx.compose.bom")))
                 add("implementation", library("androidx.material3"))
+                add("implementation", library("androidx.core.ktx"))
+                add("implementation", library("koin.compose"))
+                add("debugImplementation", library("androidx.ui.tooling"))
             }
         }
     }

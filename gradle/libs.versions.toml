@@ -5,6 +5,7 @@ coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
+kotlinGradlePlugin = "2.0.0"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.0"
 pagingCompose = "3.3.5"
@@ -39,6 +40,7 @@ goodle-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gs
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
 androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "roomVersion" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinGradlePlugin" }
 room-kapt = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
 androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "pagingCompose"}
 squareup-retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
