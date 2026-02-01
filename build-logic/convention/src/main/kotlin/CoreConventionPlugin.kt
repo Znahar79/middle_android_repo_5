@@ -1,3 +1,12 @@
+import com.android.build.api.dsl.LibraryExtension
+import org.gradle.api.JavaVersion
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.dependencies
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
+
 class CoreConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
@@ -9,7 +18,7 @@ class CoreConventionPlugin : Plugin<Project> {
                 compileSdk = 35
                 defaultConfig {
                     minSdk = 24
-                    targetSdk = 35
+                    lint.targetSdk = 35
                     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 }
                 compileOptions {
@@ -21,16 +30,12 @@ class CoreConventionPlugin : Plugin<Project> {
                 }
             }
             extensions.configure<KotlinAndroidProjectExtension> {
-                compilerOptions {
-                    jvmTarget = JvmTarget.JVM_11
-                }
+                jvmToolchain(11)
             }
 
             dependencies {
                 add("implementation", platform(library("androidx.compose.bom")))
                 add("implementation", library("androidx.material3"))
-
-                add("implementation", project(":core:analytics"))
             }
         }
     }
