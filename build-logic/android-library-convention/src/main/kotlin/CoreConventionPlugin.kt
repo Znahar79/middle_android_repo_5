@@ -15,10 +15,10 @@ class CoreConventionPlugin : Plugin<Project> {
             pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
 
             extensions.configure<LibraryExtension> {
-                compileSdk = 35
+                compileSdk = version("compileSdk")
                 defaultConfig {
-                    minSdk = 24
-                    lint.targetSdk = 35
+                    minSdk = version("minSdk")
+                    lint.targetSdk = version("targetSdk")
                     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 }
                 compileOptions {
@@ -47,3 +47,7 @@ class CoreConventionPlugin : Plugin<Project> {
 fun Project.library(alias: String) =
     extensions.getByType(VersionCatalogsExtension::class.java).named("libs").findLibrary(alias)
         .get()
+
+fun Project.version(alias: String) =
+    extensions.getByType(VersionCatalogsExtension::class.java).named("libs").findVersion(alias)
+        .get().requiredVersion.toInt()
